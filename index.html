@@ -315,6 +315,30 @@ config = {
         canvas.emscripten {
             width: min(100vw, 150vh);
             height: min(100vh, 66.6667vw);
+            top: 50%;
+            bottom: auto;
+            left: 50%;
+            right: auto;
+            transform: translate(-50%, -50%);
+            touch-action: manipulation;
+        }
+
+        #orientation-hint {
+            display: none;
+            position: fixed;
+            inset: auto 12px max(12px, env(safe-area-inset-bottom));
+            z-index: 6;
+            padding: 10px 14px;
+            border: 2px solid #3a2a22;
+            background: #f7e9d4;
+            color: #2d221c;
+            font: 600 16px/1.35 Arial, sans-serif;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        @media (orientation: portrait) and (pointer: coarse) {
+            #orientation-hint { display: block; }
         }
 
         .topright{
@@ -369,6 +393,8 @@ width="1px"
 height="1px"
     oncontextmenu="event.preventDefault()" tabindex=1>
     </canvas>
+
+    <div id="orientation-hint">Para ler melhor, gire o celular para a horizontal.</div>
 
     <div id=html></div>
 
