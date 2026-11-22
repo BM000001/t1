@@ -237,7 +237,8 @@ config = {
     _sdl2 : "canvas",
     user_canvas : 0,
     user_canvas_managed : 0,
-    ume_block : 1,
+    // This game has no audio; skip the pygbag gesture gate that can ignore iOS Safari taps.
+    ume_block : 0,
     can_close : 0,
     archive : "pygame-web",
     gui_debug : 3,
